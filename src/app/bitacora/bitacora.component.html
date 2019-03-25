@@ -1,0 +1,124 @@
+
+
+<div>    
+    <div class="col-md-12">
+        <div class="row">
+        <div class="card">
+          <div class="card-header white"><h4>Bitacora de listas</h4>          
+        </div>
+          <div class="card-block">
+          <div>
+              <div class="row blue">
+                  <div class="col-md-12">
+                    <h4 class="page-title header ">1. Filtros </h4>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">     
+                      <div class="form-group">
+                          <label for="txtUsuario">Usuario:</label>
+                          <input  type="text" class="form-control" id="txtUsuario"
+                           [(ngModel)]="usuario" />                                           
+                      </div>                             
+                  </div>
+                  <div class="col-md-4"> 
+                      <div class="form-group">                          
+                          <label for="calFec">Fecha:</label>                          
+                          <p-calendar  id="calFec" [(ngModel)]="fecha"  dateFormat="dd/mm/yy" class="form-control"
+                          placeholder="dd/mm/yyyy"  ></p-calendar>                                                                                     
+                      </div>                                                
+                  </div>
+                  <div class="col-md-4">                  
+                      <div class="form-group">
+                          <label for="txtNombre">Nombre lista:</label>
+                          <input   type="text" class="form-control" id="txtNombre"
+                           [(ngModel)]="nombreLista" uppercase />     
+                      </div>                             
+                  </div>
+              </div>
+          </div>    
+          <br>          
+          <div *ngIf="verResultado" >  
+              <div class="row">
+                  <div class="col-md-12">  
+                      <div class="card-header" style="padding:4px 10px;border-bottom: 0 none"> 
+                          <div class="row">
+                            <div class="col-md-10">                          
+                            </div>        
+                            <div class="col-md-2">          
+                              <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+                            </div>
+                          </div>  
+                        </div>                      
+                        <p-dataTable #dt [value]="bitacoraList" [rows]="10" [paginator]="true" [globalFilter]="gb" emptyMessage="No se encontraron registros">
+                          <p-column [style]="{'width':'5%'}" header="N°">
+                            <template let-index="rowIndex" pTemplate type="body">
+                              <span>{{index+1}}</span>
+                            </template>
+                          </p-column>                          
+                          <p-column [style]="{'width':'10%'}" field="nombre"  header="Nombre">
+                              <template let-doc="rowData"  pTemplate="body">
+                                  {{doc.nombre}}
+                              </template>                                
+                          </p-column>                          
+                          <p-column [style]="{'width':'10%'}" header="Usuario">
+                            <template let-doc="rowData"  pTemplate="body">
+                                {{doc.usuario}}
+                            </template>   
+                          </p-column>      
+                          <p-column  [style]="{'width':'10%'}" header="Fecha">
+                              <template let-doc="rowData"  pTemplate="body">
+                                  {{doc.fecha | date:'dd/MM/yyyy hh:mm'}}
+                              </template>     
+                          </p-column>      
+                          <p-column  header="Valor Anterior">
+                              <template let-doc="rowData"  pTemplate="body">
+                                  {{doc.valorAnterior}}
+                              </template>     
+                          </p-column>      
+                          <p-column  header="Valor Actual">
+                              <template let-doc="rowData"  pTemplate="body">
+                                  {{doc.valorActual}}
+                              </template>     
+                          </p-column>      
+                          <p-column [style]="{'width':'10%'}" header="Operacion">
+                              <template let-doc="rowData"  pTemplate="body">
+                                  {{doc.operacion}}
+                              </template>     
+                          </p-column>      
+                          <p-column [style]="{'width':'10%'}" header="Acciones">
+                            <template let-doc="rowData" let-index="rowIndex" pTemplate type="body">
+                    
+                                <button type="button" class="btn btn-primary btn-sm"
+                                (click)="editModalEntidad(doc,index)"><i class="fa fa-pencil-square-o white"></i></button>                                
+                                <button type="button" class="btn btn-danger btn-sm"
+                                (click)="deleteEntidad(index)"><i class="fa fa-trash white"></i></button>                
+                            </template>
+                          </p-column>
+                        </p-dataTable>                               
+                    </div>        
+                </div>    
+            </div> 
+            <br>          
+        </div>   
+        </div>  
+      </div>      
+        <div class="row">
+            <ul class="nav nav-pills pager wizard" style="bottom:0px; width:100%">
+        
+              <li class="nav-item">                  
+                    <a class="btn btn-danger" href="#/constantes" role="button">Atras</a>
+              </li>
+        
+              <li style="float: right;">                    
+                    <button  class="btn btn-primary" id="btnLimpiar" (click)="limpiar()">
+                            Limpiar
+                        </button>                  
+                  <button class="btn btn-primary" id="btnBuscar" (click)="buscarBitacora()">
+                      Buscar
+                    </button>
+              </li>
+            </ul>
+          </div>                          
+      </div>    
+    </div>

@@ -1,0 +1,26 @@
+[
+        {
+            "codigo": "CI",
+            "descripcion": "CÉDULA DE IDENTIDAD"
+        },
+        {
+            "codigo": "DNI",
+            "descripcion": "DOCUMENTO NACIONAL DE IDENTIDAD"
+        },
+        {
+            "codigo": "CC",
+            "descripcion": "CEDULA DE CIUDADANÍA"
+        },
+        {
+            "codigo": "RG",
+            "descripcion": "CARTEIRA DE IDENTIDADE O REGISTRO GERAL"
+        },
+        {
+            "codigo": "PAS",
+            "descripcion": "PASAPORTE"
+        },
+        {
+            "codigo": "LTT",
+            "descripcion": "LIBRETA DE TRIPULANTE TERRESTRE"
+        }
+    ]

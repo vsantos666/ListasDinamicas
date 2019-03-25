@@ -1,0 +1,95 @@
+<div>    
+    <div class="col-md-12">
+        <div class="row">
+        <div class="card">
+          <div class="card-header white"><h4>Carga masiva de entidades</h4>          
+        </div>
+          <div class="card-block">
+          <div>
+              <div class="row blue">
+                  <div class="col-md-12">
+                    <h4 class="page-title header ">1. Listas </h4>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">    
+                      <div class="form-group">
+                          <label for="txtNombre">Nombre:</label>
+                          <input   type="text" class="form-control" id="txtNombre"
+                           [(ngModel)]="constante.nombre" uppercase [attr.disabled]="desabilidato" />                                
+                      </div>                                                    
+                  </div>
+                  <div class="col-md-4"> 
+                      <div class="form-group">
+                          <label for="txtDescripcion">Descripcion:</label>
+                          <input   type="text" class="form-control" id="txtDescripcion"
+                           [(ngModel)]="constante.descripcion" uppercase [attr.disabled]="desabilidato" />                                
+                      </div>                                                    
+                  </div>
+                  <div class="col-md-4"> 
+                      <div class="form-group">
+                          <label for="txtTipo">Tipo:</label>
+                          <input   type="text" class="form-control" id="txtTipo"
+                           [(ngModel)]="constante.tipoConstante.descripcion" uppercase [attr.disabled]="desabilidato" />                                
+                      </div>       
+                                                                   
+                  </div>                  
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-4">   
+                  </div>
+                  <div class="col-md-4">   
+                      <div class="form-group">
+                          <input type="file" class="btn btn-primary" id="uploadFileEntidad" name="file" (change)="uploadFile($event)" accept=".xls,.xlsx" />
+                      </div>
+                  </div>
+                  <div class="col-md-4">   
+                  </div>
+              </div>
+              <br>
+              <div class="row" *ngIf="despliegaRespuesta">
+                  <div class="col-md-4">   
+                      <label >Detalle de carga:</label>
+                  </div>
+                  <div class="col-md-8">   
+                      <label >{{detalleCarga}}</label>
+                  </div>
+              </div>               
+          </div>                      
+          </div>      
+        </div>  
+      </div>  
+        <div class="row">
+            <ul class="nav nav-pills pager wizard" style="bottom:0px; width:100%">
+        
+              <li class="nav-item">                  
+                    <a class="btn btn-danger" href="#/constantes" role="button">Atras</a>
+              </li>
+        
+              <li style="float: right;">                  
+                  <button *ngIf="!despliegaRespuesta" class="btn btn-primary" id="btnAceptarAforo" (click)="cargaMasivaEntidades()">
+                      Registrar
+                    </button>
+                                
+                        <a *ngIf="despliegaRespuesta"  class="btn btn-primary" href="#/constantes" role="button">Finalizar</a>
+                  
+              </li>
+            </ul>
+          </div>                          
+      </div>    
+    </div>
+
+    <p-dialog [(visible)]="displayWarning" class="warning" (onShow)="autoHide('warning')">
+        <p-header>
+            Mensaje de Advertencia
+        </p-header>
+        {{msgWarning}}
+    </p-dialog>
+
+    <p-dialog [(visible)]="displayInfo" class="info" (onShow)="autoHide('info')">
+        <p-header>
+            Mensaje de Informacion
+        </p-header>
+        {{msgInfo}}
+    </p-dialog>

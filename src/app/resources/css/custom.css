@@ -1,0 +1,675 @@
+body {   padding: 20px; 
+        font-size: 0.8rem !important;
+        background: #eeeeee;
+        min-height: 500px;
+        
+        }
+        
+        .bg-gray-lighter {
+            background-color: #f5f5f5
+        }
+        
+        .bg-white {
+            background-color: #ffffff
+        }
+        
+        .form-wizard[_ngcontent-npp-3] .tab-pane[_ngcontent-npp-3] {
+            padding: 0px;
+        }
+        /*.form-control  {
+    font-size: 12px;
+    height: 25ºpx;
+    padding: 2px 4px !important;
+    border-radius: 0px;*/
+        
+        th {
+            color: #555
+        }
+        
+        .card-primary>.card-header {
+            background-color: #5090c1;
+            border-color: #5090c1;
+        }
+        
+        h3 {
+            color: #4c8fbd;
+        }
+        
+        legend {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            color: #4c8fbd;
+        }
+        
+        .info-name {
+            font-weight: bold;
+            color: #707070;
+            border-top: 1px solid #F7FBFF;
+            margin-bottom: 3px;
+        }
+        
+        .info-value {
+            padding: 2px 4px;
+            background-color: #eceeef;
+            border: 1px dotted #DCEBF7;
+            border-top: 1px solid #F7FBFF;
+            border: 1px solid #d5d5d5;
+            min-height: 25px;
+            border-radius: 3px;
+        }
+        /*label {
+    font-weight: normal;
+    font-size: 12px;
+    margin-bottom: 3px;
+}*/
+        
+        .nav-tabs>li.active>a,
+        .nav-tabs>li.active>a:focus,
+        .nav-tabs>li.active>a:hover {
+            color: #ffffff;
+            background-color: #7db4d8;
+        }
+        
+        .pager {
+            background: #eeeeee;
+            padding: 10px
+        }
+        
+      
+        .center {
+            text-align: center
+        }
+
+
+        /*#################ESTILOS DE VALIDACION#################*/
+        
+        .error {
+            color: #B94A48;
+            font-size: .85rem;
+            border: none;
+        }
+        
+        input.ng-touched.ng-invalid {
+            border-color: #B94A48;
+            background-color: #f9dbdb;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(169,68,66,.6) !important;
+        }
+        
+        select.ng-touched.ng-invalid {
+            border-color: #B94A48;
+            background-color: #f9dbdb;
+        }
+
+        /**input.ng-touched.ng-valid {
+            background-color:green;
+        }*/
+
+
+        .ui-inputtext.ng-dirty.ng-invalid, p-dropdown.ng-dirty.ng-invalid > .ui-dropdown, p-autocomplete.ng-dirty.ng-invalid > .ui-autocomplete > .ui-inputtext, p-calendar.ng-dirty.ng-invalid > .ui-inputtext, p-inputmask.ng-dirty.ng-invalid > .ui-inputtext, p-checkbox.ng-dirty.ng-invalid .ui-chkbox-box, p-radiobutton.ng-dirty.ng-invalid .ui-radiobutton-box, p-inputswitch.ng-dirty.ng-invalid .ui-inputswitch, p-listbox.ng-dirty.ng-invalid .ui-inputtext, p-multiselect.ng-dirty.ng-invalid > .ui-multiselect, p-spinner.ng-dirty.ng-invalid > .ui-inputtext, p-selectbutton.ng-dirty.ng-invalid .ui-button, p-togglebutton.ng-dirty.ng-invalid .ui-button{
+            border:1px solid  #B94A48;
+            background-color: #f9dbdb;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(169,68,66,.6) !important;
+        }
+
+        
+        .white {
+            color: #ffffff;
+        }
+        
+        .form-control {
+            font-size: 0.8rem;
+            padding: .3rem;
+        }
+        
+        select.form-control {
+            height: 1.7rem !important;
+            padding: 0.1rem;
+        }
+        
+       
+
+        input[type=date] {
+            padding: 0.2rem;
+        }
+        
+        label {
+            margin-bottom: .3rem;
+        }
+        /*DATATABLE*/
+
+
+/*################PRIME###########################*/
+
+        .ui-widget{
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important
+        }
+        
+        .ui-inputtext {
+            padding: .3rem;
+            font-size: 0.8rem;
+        }
+
+        
+        .ui-panel .ui-panel-titlebar.ui-widget-header {
+            color: #4c8fbd;
+        }
+        
+        .ui-multiselect .ui-multiselect-trigger {
+            width: auto;
+        }
+        
+        .ui-widget input,
+        .ui-widget select,
+        .ui-widget textarea,
+        .ui-widget button {
+            font-size: 0.8rem}
+
+
+    .wizard .nav-link .nav-link active{
+        background:#5bc0de;
+        color:#ffffff;
+    }
+
+    .wizard .nav-tabs>li.active>a, 
+    .wizard .nav-tabs>li.active>a:focus, 
+    .wizard .nav-tabs>li.active>a:hover{
+         /*background:#eee !important;*/
+         background-image: url("http://suma-test.aduana.gob.bo/ingreso/crt/app/resources/img/arrow.png") !important;
+         /*background:#eee;*/
+         /*color:#ffffff !important ;*/
+         background-position:top right;
+         background-size: 80px;
+         background-repeat:no-repeat;
+    }
+
+    .wizard .nav-tabs .nav-link {
+    padding-right: 35px;
+    }
+
+    .wizard .nav-tabs .nav-item.open .nav-link, 
+    .wizard .nav-tabs .nav-item.open .nav-link:focus,
+    .wizard .nav-tabs .nav-item.open .nav-link:hover, 
+    .wizard .nav-tabs .nav-link.active, 
+    .wizard .nav-tabs .nav-link.active:focus, 
+    .wizard .nav-tabs .nav-link.active:hover {
+    color: #ffffff;
+    background-color: #384042; 
+    border: none;
+}
+
+ /*Mensages*/
+    .ui-growl-item-container {
+    opacity: .85;
+    filter: alpha(opacity=85);
+    top: 100px;
+    }
+
+    .validator .ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+  /*border-color:  #a94442 !important; /* red */
+  /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(169,68,66,.6) !important;
+}*/
+    }
+     .validator .ng-valid {
+      border-left: 5px solid #42A948; /* green */
+    }
+
+
+/*##########################
+    ESTILO GENERICO SUMA
+############################*/
+
+
+    .btn-primary {
+    color: #fff;
+    background-color: #428bca ;
+    border-color: #428bca;
+    }
+
+    .pager {
+    background: #eff3f8;
+    padding: 10px;
+    border: 1px solid #C5D0DC;
+}
+
+.blue {
+    color: #478fca !important;
+}
+.white{
+    color: #ffffff !important;
+}
+
+.strong{
+    font-weight: bold
+}
+.header{
+    font-size: 1.143rem;
+    line-height: 28px;
+    /*margin-bottom: 16px;*/
+    margin-top: 18px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #CCC;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+ .nav-tabs {
+    border-bottom: 1px solid #ddd;
+    background: #ffffff;
+    margin-bottom: 10px;
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    background-color: #7db4d8;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.ui-datatable .ui-datatable-header, .ui-datatable .ui-datatable-caption{
+    text-align: left;
+} 
+
+.ui-panel .ui-panel-titlebar.ui-widget-header {
+    background:#7db4d8; 
+    color: #ffffff;
+
+}
+
+.gray .ui-panel .ui-panel-titlebar.ui-widget-header{
+    background:#818a91 !important; 
+    color: #ffffff;
+    font-size: 15px
+}
+
+
+.center{
+    text-align: center !important;
+}
+
+
+
+
+.nav-pills .nav-item.open .nav-link, .nav-pills .nav-item.open .nav-link:focus, .nav-pills .nav-item.open .nav-link:hover, .nav-pills .nav-link.active, .nav-pills .nav-link.active:focus, .nav-pills .nav-link.active:hover {
+    color: #5293C4;
+    cursor: default;
+    background-color: #fff;
+    font-size: 13px;
+    
+}
+
+.header {
+    line-height: 28px;
+    margin-bottom: 16px;
+    margin-top: 18px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #CCC;
+}
+
+/*.tab-content{
+    padding-top: 10px;
+    background: #ffffff
+}*/
+
+.nav-pills .nav-link {
+    /* display: block; */
+        border: 1px solid #C5D0DC;
+            border-radius: 0;
+}
+
+.nav-pills .nav-link.active{
+    border: 2px solid;
+    border-color: #4C8FBD #C5D0DC transparent;
+    border-top-width: 2px;
+
+}
+.nav-pills .nav-link.active:focus, .nav-tabs .nav-link.active:hover {
+    color: #55595c;
+    background-color: #fff;
+    border-color: #4C8FBD #C5D0DC transparent;
+}
+    
+
+
+/*estilos  caldendario*/
+.input-group-addon {
+    padding: .1rem .75rem;
+}
+
+
+.calendar_aux .validator .ng-valid{
+    border-left: none;
+}
+
+
+.calendar_aux .ng-valid{
+    border-left: none !important;
+    border:none; 
+}
+
+.calendar_aux .ui-inputtext{
+    display: none;
+}
+
+.calendar_aux2 .ui-inputtext{
+    display: none;
+    margin-right: 100px;
+}
+
+.primemask .ui-inputtext{
+    width: 100%;
+    border: none; 
+    
+}
+
+.ui-autocomplete-input{
+    border: none; 
+} 
+
+.ui-hack .form-control{
+    padding: 0px
+}
+
+.ui-hack .ui-autocomplete .ui-autocomplete-dropdown .ui-button-text {
+    padding: 0em;}
+
+    .ui-hack .ui-button {
+    padding: 0.4em;
+    }
+
+
+.ui-datatable .ui-datatable-header, .ui-datatable .ui-datatable-caption, .ui-datatable .ui-datatable-footer{
+    background: linear-gradient(to bottom, #f6f7f9 0%, #ebedf0 100%);
+       /*color:white   ;*/
+       text-align: center;
+       
+       /*font-size: 1rem*/
+}
+
+.ui-datatable .ui-datatable-header, .ui-datatable .ui-datatable-caption {
+    /*text-align: left;
+    height: 40px;*/
+}
+
+.ui-datatable .ui-datatable-thead > tr > th, body .ui-datatable .ui-datatable-tfoot > tr > td {
+    /*background: linear-gradient(to bottom, #f6f7f9 0%, #ebedf0 100%) !important;*/
+    background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    padding: .25em;
+    border-color: #c7c7c7;
+    color: #373a3c;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    font-weight: bold;
+}
+
+body .ui-paginator {
+    /*background: linear-gradient(to bottom, #f6f7f9 0%, #ebedf0 100%);*/
+    background: #EEF2F7
+}
+
+body .ui-datatable .ui-datatable-thead > tr > th, body .ui-datatable .ui-datatable-tfoot > tr > td {
+    padding: .50em;
+}
+
+.ui-datatable .ui-datatable-footer {
+    text-align: right !important;
+    padding: 5px !important;
+}
+
+
+/*ESTILO TABLAS ANGULAR*/
+
+thead{
+    color: #333333;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    background-color: #f5f5f5;
+    background-image: -ms-linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-image: -o-linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-image: -moz-linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #cccccc;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-bottom-color: #b3b3b3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+th{
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+
+table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #c6cacd !important;
+}
+
+table-bordered td, .table-bordered th {
+    border: 1px solid #cbcdcf;
+}
+
+
+
+/*DIV BUSCADOR*/
+.ui-widget-header .ui-helper-clearfix{
+    padding: 0px !important;
+    border: none;
+    background: none;
+}
+
+/*MODAL*/
+.modal-header{
+   background: #7DB4D8; 
+   color: #f3f3f3
+}
+
+/*CALENDARIO*/
+.input-group-addon:not(:last-child) {
+    border-right: inherit;
+}
+
+/*AUTOCOMPLETE*/
+.primeautocomplete .ui-autocomplete {
+   width: 100%;
+    /*border: none; */
+   
+} 
+
+/*.primeautocomplete .ui-inputtext{
+    width: 100%;
+    border: none; 
+   
+}*/
+
+.ui-autocomplete-input.ui-autocomplete-dd-input {
+  padding-right: 0px;
+}
+
+.primeautocomplete .ui-inputtext {
+    width: 88%;
+    border: none;
+    text-transform: uppercase;
+}
+
+.ui-autocomplete .ui-autocomplete-dropdown {
+    float: right;
+}
+
+/*mensaje*/
+
+.ui-growl-item-container.ui-state-highlight.ui-growl-message-error {
+    /*background-color: #f44336;
+    border-color: #f44336;
+    background-image: none;
+*/
+    background-color: #F2DEDE;
+    border-color: #EBCCD1;
+    color: #A94442;
+    background-image: none;
+    font-size: 12px;
+}
+
+.ui-growl-item-container.ui-state-highlight.ui-growl-message-warn {
+    
+    background-color: #fcf8e3;
+    border-color: #faf2cc;
+    color: #8a6d3b;
+    background-image: none;
+}
+
+.ui-growl-item-container.ui-state-highlight.ui-growl-message-info {
+    background-color: #d9edf7;
+    border-color: #bcdff1;
+    color: #31708f;
+    background-image: none;
+}
+
+.ui-growl-item-container{
+    opacity: .90;
+}
+
+
+
+.form-group {
+    margin-bottom: inherit
+}
+
+.card-block {
+    padding-top: 5px;
+}
+.pager{
+    margin-bottom: 5px;
+}
+
+.blue_textfield{
+    background: #bde2bd !important;
+    font-weight: bold
+}
+
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td, .ui-datatable tfoot th {
+    overflow: visible !important;
+}
+
+
+/* ------ Mobile Landscape Size to Tablet Portrait (devices and browsers) ------*/
+@media only screen and (max-width: 767px) {
+.ui-autocomplete .ui-autocomplete-dropdown {
+    float: right;
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1130px) {
+    .primeautocomplete .ui-inputtext {
+    width: 82%;
+    border: none;
+}
+
+.ui-autocomplete .ui-autocomplete-dropdown {
+    float: right;
+}
+}
+
+
+/*popup de advertencia*/
+
+.ui-dialog {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    min-width: 500px;
+}
+
+ .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon {
+    color: #ffffff !important;
+ }
+
+ .warning .ui-dialog .ui-dialog-titlebar {
+    background: orange;
+    color: #ffffff
+}
+
+ .warning .ui-widget-content {
+     width: 50%;
+     background: #FCF8E3 !important;
+     color: #8A6D3B;
+ }
+
+ .error .ui-dialog .ui-dialog-titlebar {
+    background: rgba(235, 58, 15, 0.70);;
+    color: #FFFFFF
+}
+
+ .error .ui-widget-content {
+     width: 50%;
+     background: #F2DEDE !important;
+     color:#A94442
+ }
+
+ .info .ui-dialog .ui-dialog-titlebar {
+    background:#3EB1EB;
+    color: #FFFFFF
+}
+
+ .info .ui-widget-content {
+     width: 50%;
+     background: #D9EDF7 !important;
+     color:#31708F
+ }
+
+ .success .ui-dialog .ui-dialog-titlebar {
+    background:#82af6f;
+    color: #FFFFFF
+}
+
+ .success .ui-widget-content {
+     width: 50%;
+     background: #D6E9C6 !important;
+     color:#3C763D
+ }
+
+ .confirm-warning .ui-widget-content {
+     background: #FCF8E3 !important;
+     color: #8A6D3B;
+ }
+    
+ .confirm-warning .ui-dialog .ui-dialog-titlebar {
+    background: orange;
+    color: #ffffff
+}
+
+
+.div-footer{
+    background: linear-gradient(to bottom, #f6f7f9 0%, #ebedf0 100%);
+    padding: 5px; 
+    background-color: #f5f5f5;  
+    border: 1px solid #cdcdcd;
+    margin-bottom: 5px;
+
+}
+
+/*Hack calendar*/
+.calendar-hack .ui-calendar   {
+    width: 100%;
+    border: none;
+}
+
+.calendar-hack .form-control{
+    padding: 0px;
+    
+    
+}
+.ui-inputtext{
+    width: 100%;
+    border: none !important;
+}
+ 
+

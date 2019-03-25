@@ -1,0 +1,1 @@
+export { RegistroConstantesComponent } from './registro-constantes.component';

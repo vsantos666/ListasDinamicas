@@ -1,0 +1,65 @@
+<h3 class="header">Constantes</h3>
+<tabset class="nav nav-pills">
+    
+    
+    <div class="card-header" style="padding:4px 10px;border-bottom: 0 none"> 
+      <div class="row">
+        <div class="col-md-10">                          
+        </div>        
+        <div class="col-md-2">          
+          <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+        </div>
+      </div>  
+    </div>
+  
+    <p-dataTable [value]="listConstantes" [rows]="10" [paginator]="true" [globalFilter]="gb" emptyMessage="No se encontraron registros">
+      <p-column [style]="{'width':'5%'}" header="N°">
+        <template let-index="rowIndex" pTemplate type="body">
+          <span>{{index+1}}</span>
+        </template>
+      </p-column>
+      <p-column field="nombre" header="Nombre"></p-column>
+      <p-column field="descripcion" header="Descripcion"></p-column>
+      <p-column field="usuarioCreacion" header="Creador"></p-column>      
+      <p-column [style]="{'width':'10%'}" header="Acciones">
+        <template let-doc="rowData" pTemplate type="body">
+
+            <button type="button" class="btn btn-primary btn-sm"
+            (click)="editConstante(doc.id)"><i class="fa fa-pencil-square-o white"></i></button>
+            <!--<button type="button" class="btn btn-primary btn-sm"
+            (click)="uploadConstante(doc.id)"><i class="fa fa-upload white"></i></button>
+            <button type="button" class="btn btn-primary btn-sm"
+            (click)="downloadConstante(doc.id)"><i class="fa fa-download white"></i></button>-->
+            <button type="button" class="btn btn-danger btn-sm"
+            (click)="deleteConstante(doc.id)"><i class="fa fa-trash white"></i></button>                
+        </template>
+      </p-column>
+    </p-dataTable>
+</tabset>
+
+<div>
+    <ul class="nav nav-pills pager wizard" style="bottom:0px; width:100%">
+        <li style="float: right;">
+            <a class="btn btn-primary" href="#/registroConstantes" role="button">Crear Constante</a>
+        </li>
+    </ul>
+</div>
+
+<div bsModal #modalMessage="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalDocumentos" aria-hidden="true" [config]="{'backdrop':'static', 'keyboard': false}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">        
+            <div class="modal-body">        
+                <h6 class="card-header white">Mensaje de Advertencia</h6>                       
+                <div class="row">
+                    <div class="col-md-12">        
+                        {{msgWarning}}                                                           
+                    </div>
+                  </div>               
+            </div>      
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="cancelDelete()">Cancelar</button>            
+                <button type="button" class="btn btn-primary" (click)="acceptDelete()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+    </div>

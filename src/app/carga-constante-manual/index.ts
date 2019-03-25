@@ -1,0 +1,1 @@
+export { CargaConstanteManualComponent } from './carga-constante-manual.component';

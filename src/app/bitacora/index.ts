@@ -1,0 +1,1 @@
+export { BitacoraComponent } from './bitacora.component';

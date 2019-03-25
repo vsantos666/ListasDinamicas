@@ -1,0 +1,375 @@
+
+
+<div>
+    <form [formGroup]="cForm" novalidate class="validator">
+    <div class="col-md-12">
+        <div class="row">
+        <div class="card">
+          <div class="card-header white"><h4>Registro de constantes</h4>          
+        </div>
+          <div class="card-block">
+          <div>
+              <div class="row blue">
+                  <div class="col-md-12">
+                    <h4 class="page-title header ">1. Datos </h4>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">     
+                      <div class="form-group">
+                          <label for="txtNombre">Nombre:</label>
+                          <input  formControlName="txtNombre" type="text" class="form-control" id="txtNombre"
+                           [(ngModel)]="constante.nombre" uppercase />     
+                           <control-messages [submitted]="submitted" [control]="cForm.controls.txtNombre"></control-messages>                 
+                      </div>                             
+                  </div>
+                  <div class="col-md-4"> 
+                      <div class="form-group">
+                          <label for="txtDescripcion">Descripcion:</label>
+                          <input  formControlName="txtDescripcion"  type="text" class="form-control" id="txtDescripcion"
+                          [(ngModel)]="constante.descripcion" uppercase />
+                          <control-messages [submitted]="submitted" [control]="cForm.controls.txtDescripcion"></control-messages>                                           
+                      </div>                                                
+                  </div>
+                  <div class="col-md-4">                  
+                      <div class="form-group">
+                          <label for="selTipo">Tipo:</label>
+                          <select  formControlName="selTipo"   class="form-control" name="selTipo" [(ngModel)]="constante.tipoConstante"
+                          (ngModelChange)="changeTipo()" id="selTipo">
+                  <option *ngFor="let tipoConstante of tipoDatoList" [ngValue]="tipoConstante">{{tipoConstante.descripcion}}</option>
+                  </select>
+                          
+                                               
+                      </div>                               
+                  </div>
+              </div>
+          </div>    
+          <div>              
+              <div class="row">
+                  <!--<div class="col-md-4">     
+                      <div class="form-group">
+                          <label for="calFecDesde">Fecha desde:</label>                          
+                          <p-calendar formControlName="calFecDesde"  id="calFecDesde" [(ngModel)]="constante.fechaDesde"  dateFormat="dd/mm/yy" class="form-control"
+                          placeholder="dd/mm/yyyy"  ></p-calendar>                                                           
+                      </div>                             
+                  </div>
+                  <div class="col-md-4"> 
+                      <div class="form-group">
+                          <label for="calFecHasta">Fecha hasta:</label>
+                          <p-calendar  formControlName="calFecHasta"  id="calFecHasta" [(ngModel)]="constante.fechaHasta"  dateFormat="dd/mm/yy" class="form-control"
+                          placeholder="dd/mm/yyyy"  ></p-calendar>      
+                          
+                      </div>                                                
+                  </div>-->                  
+                  <div class="col-md-12">                  
+                      <div class="form-group">
+                          <label for="txtObservaciones">Observaciones:</label>
+                          <textarea formControlName="txtObservaciones" class="col-md-12" id="constante.observaciones" name="txtObservaciones" uppercase [(ngModel)]="constante.observaciones"></textarea>                                   
+                      </div>                               
+                  </div>
+              </div>
+          </div>  
+          <br>
+          <div>
+              <div class="row">
+              <div class="col-md-12">
+                  <div class="pull-right">
+                      <span style="font-weight:normal">Adicionar Entidad</span>
+                      <button type="button" class="btn btn-primary btn-sm"
+                      (click)="addModalEntidad()"><i class="fa fa-plus white"></i></button>
+                  </div>
+              </div>
+            </div>
+          </div> 
+          <div>  
+              <div class="row">
+                  <div class="col-md-12">  
+                      <div class="card-header" style="padding:4px 10px;border-bottom: 0 none"> 
+                          <div class="row">
+                            <div class="col-md-10">                          
+                            </div>        
+                            <div class="col-md-2">          
+                              <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+                            </div>
+                          </div>  
+                        </div>                      
+                        <p-dataTable #dt [value]="entidades" [rows]="10" [paginator]="true" [globalFilter]="gb" emptyMessage="No se encontraron registros">
+                          <p-column [style]="{'width':'5%'}" header="N°">
+                            <template let-index="rowIndex" pTemplate type="body">
+                              <span>{{index+1}}</span>
+                            </template>
+                          </p-column>                          
+                          <p-column *ngIf="constante.tipoConstante.codigo != '4'"   field="valor" header="Valor">
+                              <template let-doc="rowData"  pTemplate="body">
+                                  {{doc.valor}}
+                              </template>                                
+                          </p-column>
+                          <p-column *ngIf="constante.tipoConstante.codigo == '4'"   field="valor" header="Valor">                              
+                              <template   let-doc="rowData"  pTemplate="body">
+                                  {{doc.valor | date:'dd/MM/yyyy'}}
+                              </template>  
+                          </p-column>
+                          <p-column  header="Fecha inicial">
+                            <template let-doc="rowData"  pTemplate="body">
+                                {{doc.fechaDesde | date:'dd/MM/yyyy'}}
+                            </template>   
+                          </p-column>      
+                          <p-column  header="Fecha final">
+                              <template let-doc="rowData"  pTemplate="body">
+                                  {{doc.fechaHasta | date:'dd/MM/yyyy'}}
+                              </template>     
+                          </p-column>      
+                          <p-column [style]="{'width':'10%'}" header="Acciones">
+                            <template let-doc="rowData" let-index="rowIndex" pTemplate type="body">
+                    
+                                <button type="button" class="btn btn-primary btn-sm"
+                                (click)="editModalEntidad(doc,index)"><i class="fa fa-pencil-square-o white"></i></button>                                
+                                <button type="button" class="btn btn-danger btn-sm"
+                                (click)="deleteEntidad(index)"><i class="fa fa-trash white"></i></button>                
+                            </template>
+                          </p-column>
+                        </p-dataTable>                               
+                    </div>        
+                </div>    
+            </div> 
+            <br>  
+            <div>
+            <div class="row" *ngIf="displayUpload">
+                    <div class="col-md-4">   
+                            <div class="form-group">
+                                <input type="file" class="btn btn-primary" id="uploadFileEntidad" name="file" (change)="uploadFile($event)" accept=".xls,.xlsx" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">   
+                                <button *ngIf="!despliegaRespuesta" class="btn btn-primary" id="btnEditar" (click)="cargaMasivaEntidades()">
+                                        Importar datos
+                                      </button>
+                            </div>
+                            <div class="col-md-4">   
+                                <label *ngIf="despliegaRespuesta">Detalle de carga: {{detalleCarga}}</label>
+                            </div>
+        
+                </div>      
+          </div>      
+        </div>   
+        </div>  
+      </div>      
+        <div class="row">
+            <ul class="nav nav-pills pager wizard" style="bottom:0px; width:100%">
+        
+              <li class="nav-item">                  
+                    <a class="btn btn-danger" href="#/constantes" role="button">Atras</a>
+
+                    <button  class="btn btn-danger" id="btnEditar" (click)="uploadConstanteCancel()">
+                            Cancelar Cargar
+                          </button>
+              </li>
+        
+              <li style="float: right;">
+                    <button  class="btn btn-primary" id="btnEditar" (click)="snapshotConstante()">
+                            Publicar
+                          </button>
+                    <button  class="btn btn-primary" id="btnEditar" (click)="uploadConstante()">
+                            Cargar datos
+                          </button>
+                    <button  class="btn btn-primary" id="btnEditar" (click)="downloadConstante()">
+                            Descargar datos
+                        </button>
+                  <button *ngIf="esFormEdicion" class="btn btn-primary" id="btnEditar" (click)="editConstante()">
+                      Modificar
+                    </button>
+                  <button *ngIf="!esFormEdicion" class="btn btn-primary" id="btnAceptarAforo" (click)="createConstante()">
+                      Registrar
+                    </button>
+              </li>
+            </ul>
+          </div>                          
+      </div>
+    </form>
+    </div>
+
+
+<div bsModal #modalEntidades="bs-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modalDocumentos"
+    aria-hidden="true" [config]="{'backdrop':'static', 'keyboard': false}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form [formGroup]="eForm" novalidate class="validator">
+            <div class="modal-body">        
+                <h6 class="card-header white">ADICIONAR ENTIDAD</h6>                
+                <div class="row">
+                    <div class="col-md-4"> 
+                    <div class="form-group">
+                        <label for="txtValor">Valor:</label>
+                        <input formControlName="txtValorText" *ngIf="constante.tipoConstante.codigo == '1'" type="text" class="form-control" id="txtValor"
+                         [(ngModel)]="entidad.valor"  uppercase />      
+                         <control-messages *ngIf="constante.tipoConstante.codigo == '1'" [submitted]="submitted" [control]="eForm.controls.txtValorText"></control-messages>                                                                    
+                         <input formControlName="txtValorNumber" *ngIf="constante.tipoConstante.codigo == '2'" type="text" class="form-control" id="txtValor"
+                         (keypress)="onlyNumberKey($event)" [(ngModel)]="entidad.valor"  /> 
+                         <control-messages *ngIf="constante.tipoConstante.codigo == '2'" [submitted]="submitted" [control]="eForm.controls.txtValorNumber"></control-messages>                                           
+                         <input formControlName="txtValorDecimal" *ngIf="constante.tipoConstante.codigo == '3'" type="text" class="form-control" id="txtValor"
+                         (keypress)="onlyDecimalNumberKey($event)" [(ngModel)]="entidad.valor"  /> 
+                         <control-messages *ngIf="constante.tipoConstante.codigo == '3'" [submitted]="submitted" [control]="eForm.controls.txtValorDecimal"></control-messages>                                           
+                         <p-calendar formControlName="calValor" *ngIf="constante.tipoConstante.codigo == '4'" [(ngModel)]="entidad.valor"  dateFormat="dd/mm/yy" class="form-control"
+                         placeholder="dd/mm/yyyy"  ></p-calendar>    
+                         <control-messages *ngIf="constante.tipoConstante.codigo == '4'" [submitted]="submitted" [control]="eForm.controls.calValor"></control-messages>                                           
+                    </div>  
+                  </div>  
+                  <div class="col-md-4"> 
+                      <div class="form-group">
+                          <label for="selTipoRiesgo">Tipo riesgo</label>
+                          <select  formControlName="selTipoRiesgo"   class="form-control" name="selTipoRiesgo" [(ngModel)]="entidad.tipoRiesgo"
+                           id="selTipoRiesgo">
+                          <option *ngFor="let tipoRiesgo of tipoRiesgoList" [ngValue]="tipoRiesgo">{{tipoRiesgo.descripcion}}</option>
+                      </select>
+                  </div>
+                </div>
+                  <div class="col-md-4"> 
+                      <div class="form-group">
+                          <label for="txtSolicitante">Solicitante:</label>
+                          <input  formControlName="txtSolicitante" type="text" class="form-control" id="txtSolicitante"
+                           [(ngModel)]="entidad.solicitante" uppercase />                                                
+                      </div>                             
+                  </div>                
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-4">     
+                        <div class="form-group">
+                            <label for="calFecDesdeEnt">Fecha desde:</label>
+                            <p-calendar formControlName="calFecDesdeEnt" id="calFecDesdeEnt" [(ngModel)]="entidad.fechaDesde"  dateFormat="dd/mm/yy" class="form-control"
+                            showTime="true" hourFormat="24" placeholder="dd/mm/yyyy hh:mm"  ></p-calendar>                            
+                        </div>                             
+                    </div>
+                    <div class="col-md-4"> 
+                        <div class="form-group">
+                            <label for="calFecHastaEnt">Fecha hasta:</label>
+                            <p-calendar  formControlName="calFecHastaEnt" id="calFecHastaEnt" [(ngModel)]="entidad.fechaHasta"  dateFormat="dd/mm/yy" class="form-control"
+                            showTime="true" hourFormat="24" placeholder="dd/mm/yyyy hh:mm"  ></p-calendar>      
+                            
+                        </div>                                                
+                    </div>                    
+                    <div class="col-md-4"> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">                  
+                        <div class="form-group">
+                            <label  for="txtObservacionesEnt">Observaciones:</label>
+                            <textarea formControlName="txtObservacionesEnt" id="txtObservacionesEnt" class="col-md-12" name="txtObservacionesEnt" uppercase [(ngModel)]="entidad.observaciones"></textarea>                                   
+                        </div>                               
+                    </div>
+                  </div>               
+            </div>
+          </form>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-danger" (click)="hideModalEntidad()">Cancelar</button>
+                <button type="button" *ngIf="esEdicion" class="btn btn-primary" (click)="editEntidad()">Editar</button>
+                <button type="button" *ngIf="!esEdicion" class="btn btn-primary" (click)="addEntidad()">Aceptar</button>
+            </div>
+        </div>
+</div>  
+  
+<p-dialog [(visible)]="displayWarning" class="warning" (onShow)="autoHide('warning')">
+        <p-header>
+            Mensaje de Advertencia
+        </p-header>
+        {{msgWarning}}
+    </p-dialog>
+</div>
+    
+<div [ngSwitch]="loading">
+    <div *ngSwitchCase="true">
+      <loading-indicator></loading-indicator>
+    </div>
+    <div *ngSwitchCase="false">
+    </div>
+  </div>
+
+<p-dialog [(visible)]="displayWarning" class="warning" (onShow)="autoHide('warning')">
+    <p-header>
+        Mensaje de Advertencia
+    </p-header>
+    {{msgWarning}}
+</p-dialog>
+
+<p-dialog [(visible)]="displayError" class="error" (onShow)="autoHide('error')">
+    <p-header>
+        Mensaje de Error
+    </p-header>
+    {{msgError}}
+</p-dialog>
+
+<p-dialog [(visible)]="displayInfo" class="info" (onShow)="autoHide('info')">
+    <p-header>
+        Mensaje de Informacion
+    </p-header>
+    {{msgInfo}}
+</p-dialog>
+
+<p-dialog [(visible)]="displayInfo2" class="info" (onShow)="autoHide('info2')">
+        <p-header>
+            Mensaje de Informacion
+        </p-header>
+        {{msgInfo2}}
+    </p-dialog>
+
+<div bsModal #modalMessage="bs-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modalDocumentos" aria-hidden="true" [config]="{'backdrop':'static', 'keyboard': false}">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">        
+        <div class="modal-body">        
+            <h6 class="card-header white">Mensaje de Advertencia</h6>                       
+            <div class="row">
+                <div class="col-md-12">        
+                    {{msgWarning}}                                                           
+                </div>
+              </div>               
+        </div>      
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="cancelDelete()">Cancelar</button>            
+            <button type="button" class="btn btn-primary" (click)="acceptDelete()">Aceptar</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div bsModal #modalPublish="bs-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modalDocumentos" aria-hidden="true" [config]="{'backdrop':'static', 'keyboard': false}">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"> 
+                    <form [formGroup]="sForm" novalidate class="validator">       
+                <div class="modal-body">        
+                    <h6 class="card-header white">Publicación de lista</h6>                       
+                    <div class="row">
+                            <div class="col-md-4">     
+                                <div class="form-group">
+                                    <label for="calFecDesdeCons">Fecha desde:</label>
+                                    <p-calendar formControlName="calFecDesdeCons" id="calFecDesdeCons" [(ngModel)]="constante.fechaDesde"  dateFormat="dd/mm/yy" class="form-control"
+                                    showTime="true" hourFormat="24" placeholder="dd/mm/yyyy hh:mm"  ></p-calendar>                            
+                                </div>                             
+                            </div>
+                            <div class="col-md-4"> 
+                                <div class="form-group">
+                                    <label for="calFecHastaCons">Fecha hasta:</label>
+                                    <p-calendar  formControlName="calFecHastaCons" id="calFecHastaCons" [(ngModel)]="constante.fechaHasta"  dateFormat="dd/mm/yy" class="form-control"
+                                    showTime="true" hourFormat="24" placeholder="dd/mm/yyyy hh:mm"  ></p-calendar>      
+                                    
+                                </div>                                                
+                            </div>                    
+                            <div class="col-md-4"> 
+                            </div>
+                        </div>             
+                </div>    
+                    </form>  
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="cancelSnapshot()">Cancelar</button>            
+                    <button type="button" class="btn btn-primary" (click)="aceptSnapshot()">Aceptar</button>
+                </div>
+            </div>
+        </div>
+        <p-dialog [(visible)]="displayWarning" class="warning" (onShow)="autoHide('warning')">
+                <p-header>
+                    Mensaje de Advertencia
+                </p-header>
+                {{msgWarning}}
+            </p-dialog>
+        </div>
